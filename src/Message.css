@@ -1,0 +1,11 @@
+div { 
+  display: flex;
+        flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  font-size: 25pt;
+    text-decoration-line: underline;
+  text-decoration-style: wavy;
+  color: #91d;
+}
