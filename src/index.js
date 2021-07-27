@@ -6,6 +6,36 @@ import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
+   <BrowserRouter>
+            <ul>
+                <li>
+                    <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                    <Link to="/chats">Chats</Link>
+                </li>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+            </ul>
+            <Switch>
+                <Route path="/profile">
+                    <Profile />
+                </Route>
+                <Route
+                    exact
+                    path="/chats/:chatId?"
+                >
+                    <Chats />
+                </Route>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route>
+                    <h3>Page not found</h3>
+                </Route>
+            </Switch>
+        </BrowserRouter>
     <App />
   </React.StrictMode>,
   document.getElementById('root')

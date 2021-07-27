@@ -1,34 +1,37 @@
-import Message from './Message.js';
+import React from 'react';
+import Message from './Message.js';'
+import Chats from './Chats.js'
 import './App.css';
 import { useState } from 'react';
 import { TextField } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 
 function App() {
- const [messageList, setmessageList] = React.useState(initialState: [])
- const [inputValue, setInputValue] = React.useState(initialState: '')
  
- React.useEffect(effect() => {
-   if (messageList[messageList.length-1].author != 'bot'){
-	   setmessageList{author: 'bot', text:'hello!'
- }, deps: [messageList]);
+ const initialChats = {
+ id1: {
+   name: "Chat1",
+   messages: [{ text: "FirstMessage", author: AUTHORS.BOT }],
+ },
+ id2: {
+   name: "Chat2",
+   messages: [{ text: "FirstMessageHereToo!", author: AUTHORS.ME }],
+ },
+};
+const handleChangeChat = (chat) => setCurrentChat(chat)
 
- const handleMessageChange = (e) => {
-	 setInputValue(e.target.Value)
- }
- 
   return (
     <div className='app'>
 	<List subheader={<li />} className={classes.list}>
-  {[name, id].map((sectionId) => (
-    <li key={`section-${sectionId}`} className={classes.listSection}>
-      <ListItem key={`item-${sectionId}-${item}`}>
-            <ListItemText primary={`Item ${item}`} />
+  {chats.map((chat) => (
+    <li key={chat.id} className={classes.listSection}>
+      <ListItem key={chat.id}>
+            <ListItemText primary={setCurrentChat(chat)} />
           </ListItem>
     </li>
   ))}
 </List>
-
+ 
 <div
 	{messageList.map((message, index:number) => (
      <Message key={index} author={message.author} text={message.text} />
