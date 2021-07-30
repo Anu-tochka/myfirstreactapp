@@ -1,10 +1,12 @@
 import React from 'react';
-import Message from './Message.js';'
+import Message from './Message.js';
+import Profile from './Profile.js';
 import Chats from './Chats.js'
 import './App.css';
 import { useState } from 'react';
 import { TextField } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
+
 
 function App() {
  
@@ -22,6 +24,35 @@ const handleChangeChat = (chat) => setCurrentChat(chat)
 
   return (
     <div className='app'>
+	
+            <ul>
+                <li>
+                    <Link to="/profile">Profile</Link>
+                </li>
+                <li>
+                    <Link to="/chats">Chats</Link>
+                </li>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+            </ul>
+            <Switch>
+                <Route path="/profile">
+                    <Profile />
+                </Route>
+                <Route
+                    exact
+                    path="/chats/:chatId?"
+                >
+                    <Chats />
+                </Route>
+                <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route>
+                    <h3>Page not found</h3>
+                </Route>
+            </Switch>
 	<List subheader={<li />} className={classes.list}>
   {chats.map((chat) => (
     <li key={chat.id} className={classes.listSection}>
@@ -51,8 +82,9 @@ const handleChangeChat = (chat) => setCurrentChat(chat)
      variant="outlined"
      value={author}
    />
-	 <Button variant="contained" color="secondary onClick={sendMsg}>Click!</Button>
+	 <Button variant="contained" color="secondary" onClick={sendMsg}>Click!</Button>
    </div>
+   <Profile />
   </div>
   );
 }

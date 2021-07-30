@@ -3,40 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from "react-redux";
 
 ReactDOM.render(
   <React.StrictMode>
+  <Provider store={store}>
    <BrowserRouter>
-            <ul>
-                <li>
-                    <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                    <Link to="/chats">Chats</Link>
-                </li>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-            </ul>
-            <Switch>
-                <Route path="/profile">
-                    <Profile />
-                </Route>
-                <Route
-                    exact
-                    path="/chats/:chatId?"
-                >
-                    <Chats />
-                </Route>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route>
-                    <h3>Page not found</h3>
-                </Route>
-            </Switch>
         </BrowserRouter>
     <App />
+	</Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
