@@ -20,9 +20,16 @@ function App() {
    messages: [{ text: "FirstMessageHereToo!", author: AUTHORS.ME }],
  },
 };
+const [currentChat, setCurrentChat] = React.useState(chats[0])
 const handleChangeChat = (chat) => setCurrentChat(chat)
 
-  return (
+const handleAddChat = (chatName) => {
+        setChats((currentChats) => [
+            ...currentChats,
+            { name: chatName, id: `chat${Date.now()}` },
+        ])
+    }
+	return (
     <div className='app'>
 	
             <ul>

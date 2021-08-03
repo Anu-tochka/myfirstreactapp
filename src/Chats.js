@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import {useParams, useRouteMatch} from 'react-router';
 import Message from './Message.js';
+import ChatList from './Chatlist.js';
 import './Chats.css';
 
 function Chats(props) {
@@ -12,6 +13,9 @@ function Chats(props) {
    if (!chats[chatId]) {
    return null
  }
+
+  import { getChatList } from "../store/chats/selectors";
+  const chats = useSelector(getChatList, shallowEqual);
 
 return (
     <div className="chats" style={{marginTop: '30px'}}>
