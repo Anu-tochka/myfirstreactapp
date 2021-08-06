@@ -22,9 +22,10 @@ export default function Profile() {
     const { showName, name } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
 
- const handleChange = useCallback((e) => {
-    setValue(e.target.value);
- }, []);
+ const handleChange = (event) => {
+        dispatch(addMessage(event.target.checked))
+        dispatch(addMessageWithThunk(event.target.checked))
+    }
 
 const setName = useCallback(() => {
     dispatch(changeName(value))

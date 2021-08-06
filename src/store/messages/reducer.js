@@ -5,7 +5,7 @@ const initialState = {
   messageList: {},
 };
 
-const chatsReducer = (state = initialState, action) => {
+const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE: {
       const currentList = state.messageList[action.chatId] || [];
@@ -28,4 +28,4 @@ const chatsReducer = (state = initialState, action) => {
   }
 };
 
-export default chatsReducer;
+export default messagesReducer;

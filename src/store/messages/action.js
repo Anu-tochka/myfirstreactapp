@@ -1,7 +1,22 @@
 export const ADD_MESSAGE = 'MESSAGES::ADD_MESSAGE';
 
-export const addMessage = (chatId, message) => ({
+const addMessage = (chatId, message) => ({
   type: ADD_MESSAGE,
-  chatId,
-  message,
+  payload: {
+        chatId,
+        message,
+    },
 });
+return { 
+    const addMessageWithThunk = (chatId, message) => {
+		dispatch{addMessage(chatId, message));
+		if(message.author !== AUTHORS.Bot){
+			const botMessage = {};
+			setTimeout(() => {
+				dispatch(addMessage(chatId, botMessage))
+			}, 2000)
+		}
+	}
+}
+
+export default toggle_action;

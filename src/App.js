@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 
 
 function App() {
- 
+/* 
  const initialChats = {
  id1: {
    name: "Chat1",
@@ -29,6 +29,7 @@ const handleAddChat = (chatName) => {
             { name: chatName, id: `chat${Date.now()}` },
         ])
     }
+*/	
 	return (
     <div className='app'>
 	
