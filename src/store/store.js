@@ -6,12 +6,18 @@ import messagesReducer from './messages/reducer.js';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// создаем объект конфигурации для persist
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
 const store = createStore(
-   combineReducers({
+   persistReducer(persistConfig, combineReducers({
     chats: chatsReducer,
     profile: profileReducer,
     messages: messagesReducer,
-  }),
+  })),
   composeEnhancers(applyMiddleware(thunk))
 );  /*window.__REDUX_DEVTOOLS_EXTENSION__ &&                        
      window.__REDUX_DEVTOOLS_EXTENSION__());*/
@@ -23,4 +29,4 @@ export const addMessage = (chatId, message) => ({
   chatId,
   message,
 });
-export default store;
+export const persistor = persistStore(store);
